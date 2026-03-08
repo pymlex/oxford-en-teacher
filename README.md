@@ -46,7 +46,6 @@ cd oxford-en-teacher
 Set environment variables or create a `.env` in the repository root:
 
 ```
-
 LLM_PROVIDER=hf
 HF_API_KEY=hf_xxx...            # Hugging Face key
 LLM_MODEL=openai/gpt-oss-20b:groq
@@ -54,7 +53,6 @@ FALLBACK_MODELS=meta-llama/Llama-3.1-8B-Instruct:cerebras
 OPENAI_BASE_URL=[https://router.huggingface.co/v1](https://router.huggingface.co/v1)   # optional
 OALD_API_URL=[http://127.0.0.1:8001/api/parse](http://127.0.0.1:8001/api/parse)       # local parser
 LLM_TIMEOUT=60
-
 ```
 
 The StartChat.lnk file will be automatically generated. Click it and open the http://127.0.0.1:8003/ page in your browser.
