@@ -1,6 +1,6 @@
 # Oxford EN Teacher
 
-<img width="676" height="821" alt="image" src="https://github.com/user-attachments/assets/d2ccdfa5-9478-47cf-94d3-7f7d19e17a0a" />
+<img width="338" height="410" alt="image" src="https://github.com/user-attachments/assets/d2ccdfa5-9478-47cf-94d3-7f7d19e17a0a" />
 
 A FastAPI-based orchestrator that queries a local OALD parser, Wiktionary, and a gpt-oss-120b model via Hugging Face to return bilingual explanations, examples, phonetics, and word origins to help Russian speakers learn English precisely.
 
