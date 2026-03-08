@@ -55,7 +55,7 @@ OALD_API_URL=[http://127.0.0.1:8001/api/parse](http://127.0.0.1:8001/api/parse) 
 LLM_TIMEOUT=60
 ```
 
-Find Hugging Face API key [here](https://huggingface.co/settings/tokens). The StartChat.lnk file will be automatically generated. Click it and open the http://127.0.0.1:8003/ page in your browser.
+Find your Hugging Face API key [here](https://huggingface.co/settings/tokens). The StartChat.lnk file will be automatically generated. Click it and open the http://127.0.0.1:8003/ page in your browser.
 
 ---
 
