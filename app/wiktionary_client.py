@@ -19,6 +19,9 @@ def get_wiktionary_etymology(word, lang="English"):
     data = r.json()
     pages = data["query"]["pages"]
     page = next(iter(pages.values()))
+    revisions = page.get('revisions', None)
+    if revisions is None:
+        return None
     text = page["revisions"][0]["slots"]["main"]["*"]
     lang_section = re.search(rf"==\s*{re.escape(lang)}\s*==(.+?)(\n==[^=]|$)", text, re.S)
     if not lang_section:
