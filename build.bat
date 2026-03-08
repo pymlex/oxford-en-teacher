@@ -20,16 +20,15 @@ call :install "%ROOT%\unichat-gui"
 
 (
 echo @echo off
-echo start "" "%%~dp0\oxford-dictionary-parser\run_server.bat"
-echo start "" "%%~dp0\run_server.bat"
-echo start "" "%%~dp0\unichat-gui\run_server.bat"
-echo start "" "http://127.0.0.1:8003/"
+echo start "Parser" cmd /k "cd /d ""%%~dp0oxford-dictionary-parser"" && call .venv\Scripts\activate && python -m uvicorn app.main:app --host 127.0.0.1 --port 8001"
+echo start "Orchestrator" cmd /k "cd /d ""%%~dp0"" && call .venv\Scripts\activate && python -m uvicorn app.main:app --host 127.0.0.1 --port 8002"
+echo start "Frontend" cmd /k "cd /d ""%%~dp0unichat-gui"" && call .venv\Scripts\activate && python -m uvicorn app.main:app --host 127.0.0.1 --port 8003 && start http://127.0.0.1:8003/"
 ) > "%ROOT%\run_all.bat"
 
 (
 echo @echo off
 echo cd /d "%%~dp0"
-echo call ".venv\Scripts\activate.bat"
+echo call .venv\Scripts\activate
 echo python -m uvicorn app.main:app --host 127.0.0.1 --port 8002
 echo pause
 ) > "%ROOT%\run_server.bat"
@@ -38,7 +37,7 @@ if exist "%ROOT%\oxford-dictionary-parser\" (
     (
     echo @echo off
     echo cd /d "%%~dp0"
-    echo call ".venv\Scripts\activate.bat"
+    echo call .venv\Scripts\activate
     echo python -m uvicorn app.main:app --host 127.0.0.1 --port 8001
     echo pause
     ) > "%ROOT%\oxford-dictionary-parser\run_server.bat"
@@ -48,19 +47,14 @@ if exist "%ROOT%\unichat-gui\" (
     (
     echo @echo off
     echo cd /d "%%~dp0"
-    echo call ".venv\Scripts\activate.bat"
+    echo call .venv\Scripts\activate
     echo python -m uvicorn app.main:app --host 127.0.0.1 --port 8003
     echo start "" "http://127.0.0.1:8003/"
     echo pause
     ) > "%ROOT%\unichat-gui\run_server.bat"
 )
 
-powershell -NoProfile -Command ^
-"$s=(New-Object -COM WScript.Shell).CreateShortcut('%ROOT%\\StartChat.lnk');" ^
-"$s.TargetPath='%ROOT%\\run_all.bat';" ^
-"$s.WorkingDirectory='%ROOT%';" ^
-"$s.IconLocation='%SystemRoot%\\system32\\SHELL32.dll,1';" ^
-"$s.Save();"
+powershell -NoProfile -Command "$s=(New-Object -COM 'WScript.Shell').CreateShortcut('%ROOT%\\StartChat.lnk');$s.TargetPath='%ROOT%\\run_all.bat';$s.WorkingDirectory='%ROOT%';$s.IconLocation='%SystemRoot%\\system32\\SHELL32.dll,1';$s.Save();"
 
 exit /b 0
 
@@ -72,10 +66,10 @@ pushd "%P%"
 if exist "setup.bat" (
     call setup.bat
 ) else (
-    if not exist ".venv\Scripts\activate.bat" (
+    if not exist ".venv\Scripts\activate" (
         python -m venv .venv
     )
-    call .venv\Scripts\activate.bat
+    call .venv\Scripts\activate
     if exist "requirements.txt" (
         .venv\Scripts\pip.exe install --upgrade pip
         .venv\Scripts\pip.exe install -r requirements.txt
