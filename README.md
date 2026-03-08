@@ -16,7 +16,6 @@ A FastAPI-based orchestrator that queries a local OALD parser, Wiktionary, and a
 ## Repo base structure
 
 ```
-
 .
 ├── app/
 │   ├── main.py          
@@ -30,7 +29,6 @@ A FastAPI-based orchestrator that queries a local OALD parser, Wiktionary, and a
 ├── build.bat     
 ├── requirements.txt
 └── .env
-
 ```
 
 ---
