@@ -47,7 +47,7 @@ Set environment variables or create a `.env` in the repository root:
 
 ```
 LLM_PROVIDER=hf
-HF_API_KEY=hf_xxx...            # Hugging Face key
+HF_API_KEY=hf_xxx...            # Hugging Face API [key](https://huggingface.co/settings/tokens)
 LLM_MODEL=openai/gpt-oss-20b:groq
 FALLBACK_MODELS=meta-llama/Llama-3.1-8B-Instruct:cerebras
 OPENAI_BASE_URL=[https://router.huggingface.co/v1](https://router.huggingface.co/v1)   # optional
