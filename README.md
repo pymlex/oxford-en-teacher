@@ -7,7 +7,7 @@ A FastAPI-based orchestrator that queries a local OALD parser, Wiktionary, and a
 ## Functional abilities
 
 * Accepts free-text queries in a simple [chat](https://github.com/pymlex/unichat-gui).
-* Checks pronunciations and multiple meanings in [OALD](https://www.oxfordlearnersdictionaries.com).
+* Checks pronunciations and multiple meanings in [OALD](https://www.oxfordlearnersdictionaries.com) via a custom [API](https://github.com/pymlex/oxford-dictionary-parser).
 * Fetches [Wiktionary](https://en.wiktionary.org/wiki/api) etymology and inserts it into the prompt.
 * OALD and Wiktionary requests are performed in parallel.
 * Pluggable gpt-oss-120b LLM backend via [Hugging Face](https://huggingface.co/docs/inference-providers/index) client. Supports fallback models.
