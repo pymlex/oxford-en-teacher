@@ -10,7 +10,7 @@ A FastAPI-based orchestrator that queries a local OALD parser, Wiktionary, and a
 * Checks pronunciations and multiple meanings in [OALD](https://www.oxfordlearnersdictionaries.com).
 * Fetches [Wiktionary](https://en.wiktionary.org/wiki/api) etymology and inserts it into the prompt.
 * OALD and Wiktionary requests are performed in parallel.
-* Pluggable LLM backend via [Hugging Face](https://huggingface.co/docs/inference-providers/index) client. Supports fallback models.
+* Pluggable gpt-oss-120b LLM backend via [Hugging Face](https://huggingface.co/docs/inference-providers/index) client. Supports fallback models.
 * Works locally (Windows) and supports Docker.
 
 ## Repo base structure
